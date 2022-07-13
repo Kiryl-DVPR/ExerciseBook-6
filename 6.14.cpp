@@ -13,7 +13,7 @@ int main()
     {
         cout << "Enter number: ";
         cin >> x;
-        cout << functFloor(x) << endl;
+        cout << "Round: "<< functFloor(x) << endl;
     }
      
 }
