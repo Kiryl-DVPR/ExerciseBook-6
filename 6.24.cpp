@@ -8,21 +8,33 @@ int modul(int, int);
 
 int main()
 {
-    int a, b=10;
-
+    int a, b, c, d=1, q;
+    
     cin >> a;
-    quotient(a, b);
 
-    while (quotient(a, b) > 10)
+    c = a;
+
+    while (q > 9) // Определяем разрядность
     {
-        cout << modul(a, b);
+        quotient(c, d);
+        d=d*10;
+        q=quotient(c, d);
+    }
+    
+    b = d;
 
+    while(b!=0)
+    {
+        cout << quotient(a, b) << " ";
+        a = modul(a, b);
+        b=b/10;
     }
     
 }
 
 int quotient(int a, int b)
 {
+    
     return (a/b);
 }
 
