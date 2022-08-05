@@ -15,10 +15,10 @@ int main()
 
 float numberMin(float a, float b, float c)
 {
- if(a<b & a < c)
-    {
-        return a;
-    }
+    if(a<b & a < c)
+        {
+            return a;
+        }
  
     if(b<a & b<c)
         {
