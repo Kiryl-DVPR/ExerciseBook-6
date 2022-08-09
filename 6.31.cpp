@@ -40,12 +40,11 @@ int ged(int a, int b)
         };
   
     };
- 
+
     if(sa==sb)
     {
         return sa;
     }
-    else
     {
         return 0;
     }

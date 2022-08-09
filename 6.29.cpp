@@ -1,19 +1,19 @@
 #include <iostream>
 using namespace std;
 
-void simpleNumber(int);
+int simpleNumber(int);
 
 int main()
 {
 
     for (int number=1; number <= 50; ++number)
     {
-        simpleNumber( number );
+        cout << simpleNumber( number ) << endl;
     }
 
 }
 
-void simpleNumber(int a)
+int simpleNumber(int a)
 {
     int s=0;
  
@@ -27,7 +27,11 @@ void simpleNumber(int a)
  
     if(s<=a)
     {
-        cout << a << endl;
+        return a;
+    }
+    else
+    {
+        return 0;
     }
    
 }
