@@ -3,7 +3,7 @@
 
 using namespace std;
 
-void hanoi(int n, int f, int l, int m);
+void hanoi( int n, int start, int finish, int transit );
 
 int main()
 {
