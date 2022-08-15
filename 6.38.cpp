@@ -3,26 +3,29 @@
 
 using namespace std;
 
-int funct( int, int, int, int );
+void hanoi(int n, int f, int l, int m);
 
 int main()
 {
-    funct( 3, 1, 3, 2 );
+    hanoi( 3, 1, 3, 2 );
 
 }
 
-int funct(int n, int start, int finish, int transit)
+void hanoi( int n, int start, int finish, int transit )
 {
-    cout << start << " -> " << transit << endl;
-
-    if ( n == 1)
+    if(n == 1)
     {
         cout << start << " -> " << finish << endl;
-        return 0;
     }
-      
-    return funct( n-1, start, finish, transit );
 
+    if(n > 1)
+    {
+        hanoi( n-1, start, transit, finish) ;
+
+        cout << start << " -> " << finish << endl;
+
+        hanoi( n-1, transit, finish, start );
+    }
 }
 
 
