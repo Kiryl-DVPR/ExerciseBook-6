@@ -8,7 +8,6 @@ int gcdY(int y);
 int main()
 {
     cout << gcd(27,27);
-
 }
 
 int i=1, r=1;
