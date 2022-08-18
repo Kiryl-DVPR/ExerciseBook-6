@@ -13,7 +13,7 @@ int main()
     int myPoint; // Очко
     Status gameStatus;
 
-    srand( time(0));
+    srand( time(0)); //
 
     int sumOfDice = rollDice(); // Первый бросок костей;
 
