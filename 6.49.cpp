@@ -17,7 +17,7 @@ int main()
 
     int sumOfDice = rollDice(); // Первый бросок костей;
 
-    switch ( sumOfDice)
+    switch ( sumOfDice)//
     {
         case 7:
         case 11:
