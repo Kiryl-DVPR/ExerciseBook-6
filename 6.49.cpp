@@ -10,7 +10,7 @@ int main()
 {
     enum Status { CONTINUE, WON, LOST };
 
-    int myPoint;
+    int myPoint; // Очко
     Status gameStatus;
 
     srand( time(0));
