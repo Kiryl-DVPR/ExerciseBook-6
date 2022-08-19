@@ -7,57 +7,88 @@ using namespace std;
 int rollDice();
 
 int main()
-{
-    enum Status { CONTINUE, WON, LOST };
+{   
+    int bankBalance = 1000; // Начальный баланс
+    int wager;
+    cout << "Your balance: " << bankBalance << endl;
+    cout << "Please enter wager: ";
+    cin >> wager;
 
-    int myPoint; // Очко
-    Status gameStatus;
-
-    srand( time(0)); //
-
-    int sumOfDice = rollDice(); // Первый бросок костей;
-
-    switch ( sumOfDice)//
+    while( wager > bankBalance )
     {
-        case 7:
-        case 11:
-            gameStatus = WON;
-        break;
+        cout << "Please enter correct wager: ";
+        cin >> wager; 
+    };
 
-        case 2:
-        case 3:
-        case 12:
-            gameStatus = LOST;
-        break;
-    
-        default:
-            gameStatus = CONTINUE;
-            myPoint = sumOfDice;
-            cout << "Point is " << myPoint << endl;
-        break;
-    }
+    while (bankBalance != 0)
+    {      
+        enum Status { CONTINUE, WON, LOST };
 
-    while ( gameStatus == CONTINUE )
-    {
-        sumOfDice = rollDice();
+        int myPoint; 
+        Status gameStatus;
 
-        if ( sumOfDice == myPoint )
+        srand( time(0)); 
+
+        int sumOfDice = rollDice(); // Первый бросок костей;
+
+        switch ( sumOfDice)
         {
-            gameStatus = WON;
-        }
-        else
-        {
-            if( sumOfDice == 7)
+            case 7:
+            case 11:
+                gameStatus = WON;
+            break;
+
+            case 2:
+            case 3:
+            case 12:
                 gameStatus = LOST;
-        }
+                bankBalance = bankBalance - wager;
+            break;
         
-    }
+            default:
+                gameStatus = CONTINUE;
+                myPoint = sumOfDice;
+                cout << "Point is " << myPoint << endl;
+            break;
+        }
 
-    if( gameStatus == WON )
-        cout << "Player wins" << endl;
-    else
-        cout << "Player loses" << endl; 
-    
+        while ( gameStatus == CONTINUE )
+        {
+            sumOfDice = rollDice();
+
+            if ( sumOfDice == myPoint )
+            {
+                gameStatus = WON;
+            }
+            else
+            {
+                if( sumOfDice == 7)
+                    gameStatus = LOST;
+            }
+            
+        }
+
+        if( gameStatus == WON )
+            cout << "Player wins. Your balance: " << (bankBalance = bankBalance + wager) << endl;
+        else
+            cout << "Player loses. Your balance: " << (bankBalance = bankBalance - wager) << endl; 
+
+        
+        cout << "Your balance: " << bankBalance << endl;
+
+        if ( bankBalance == 0)
+        {
+            return 0;
+        }
+        cout << "Please enter wager: ";
+        cin >> wager;
+
+        while( wager > bankBalance )
+            {
+                cout << "Please enter correct wager: ";
+                cin >> wager; 
+            }
+    }
 }
 
 int rollDice()
@@ -67,7 +98,7 @@ int rollDice()
 
     int sum = die1 + die2;
 
-    cout << "Player rolled" << die1 << " + " << die2 << " = " << sum << endl;
+    cout << "Player rolled: " << die1 << " + " << die2 << " = " << sum << endl;
 
     return sum;
 }
